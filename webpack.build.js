@@ -27,7 +27,7 @@ module.exports = function buildWebpackConfig(options) {
 	// Webpack loaders
 	config.module = {};
 	config.module.loaders = [{
-		test: /\.js$/,
+		test: /\.jsx?$/,
 		exclude: /(node_modules)/,
 		loader: 'babel'
 	}];
@@ -36,8 +36,9 @@ module.exports = function buildWebpackConfig(options) {
 	config.plugins = [];
 	config.plugins.push(new HtmlWebpackPlugin({
 		title: 'React.js sample application',
+		appMountId: 'application',
 		filename: 'application.html',
-		chunks: ['application'],
+		template: path.join(__dirname, 'application/index.ejs'),
 		inject: true,
 		minify: false,
 		hash: false
