@@ -2,6 +2,7 @@
 
 var path = require('path');
 var webpack = require('webpack');
+var HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = function buildWebpackConfig(options) {
 	var build = 'build' === options.process;
@@ -33,6 +34,14 @@ module.exports = function buildWebpackConfig(options) {
 
 	// Webpack plugins
 	config.plugins = [];
+	config.plugins.push(new HtmlWebpackPlugin({
+		title: 'React.js sample application',
+		filename: 'application.html',
+		chunks: ['application'],
+		inject: true,
+		minify: false,
+		hash: false
+	}));
 
 	// Dev server
 	config.devServer = {};
