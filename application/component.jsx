@@ -1,14 +1,13 @@
 import React from 'react';
+import TodoComponent from './todo.jsx'
 
-export default class Hello extends React.Component {
+export default class Header extends React.Component {
 	render() {
-		let myname = 'dmitry';
-
 		return (
-			<div>
-				<h1>Hello title!</h1>
-				<h2>Hello {myname}!</h2>
-			</div>
+			<header>
+				<h1>Simple ToDo!</h1>
+				<TodoComponent />
+			</header>
 		);
 	}
 }
